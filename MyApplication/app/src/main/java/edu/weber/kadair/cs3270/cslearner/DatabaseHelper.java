@@ -36,8 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db){
         Log.d("test", "Creating new database");
         String createQuery = "CREATE TABLE blogs " +
-                "(_id integer primary key autoincrement,," +
-                "entryID TEXT, date TEXT, title TEXT, blogText TEXT);";
+                "(_id integer primary key autoincrement," +
+                "entryID TEXT, date TEXT, title TEXT, blogText TEXT)";
         db.execSQL(createQuery);//execute the query to create the database
     }
 
@@ -115,7 +115,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     //Everything below this point would work for real data but doesn't match the dummy file.
-    public long insertCommentorAccount(){
+    /*public long insertCommentorAccount(){
         return 0;
     }
 
@@ -195,7 +195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return null;
     }
 
-
+*/
 
 
 
