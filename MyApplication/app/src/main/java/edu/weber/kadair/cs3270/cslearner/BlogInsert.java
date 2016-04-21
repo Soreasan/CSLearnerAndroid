@@ -42,7 +42,16 @@ public class BlogInsert extends Fragment {
             @Override
             public void onClick(View v){
                 DatabaseHelper dbHelper = new DatabaseHelper(getActivity(), "blogs", null, 1);
-                long rowID = dbHelper.insertBlog(id.getText().toString(),date.getText().toString(),title.getText().toString(),entry.getText().toString());
+                //insertBlog(String entryID, String date, String title, String blogText)
+                String thisID = String.valueOf(id.getText());
+                String thisDate = String.valueOf(date.getText());
+                String thisTitle = String.valueOf(title.getText());
+                String thisText = String.valueOf(entry.getText());
+                Log.d("test", "thisID " + thisID);
+                Log.d("test", "thisDate" + thisDate);
+                Log.d("test", "thisTitle" + thisTitle);
+                Log.d("test", "thisText" + thisText);
+                long rowID = dbHelper.insertBlog(thisID, thisDate, thisTitle, thisText);
                 Log.d("test", String.valueOf(rowID));
                 //MainActivity ma = (MainActivity) getActivity();
                 //ma.reloadCourseList();

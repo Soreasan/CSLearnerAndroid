@@ -44,7 +44,7 @@ public class BlogList extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id){
         Log.d("Test", "ListView position:" + position + "-d" + id);
         MainActivity ma = (MainActivity) getActivity();
-        //ma.populateCourse(id);
+        ma.loadSpecificBlogEntry(id);
     }
 
 }

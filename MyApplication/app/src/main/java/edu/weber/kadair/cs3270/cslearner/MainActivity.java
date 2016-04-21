@@ -28,6 +28,7 @@ import com.google.gson.reflect.TypeToken;
 public class MainActivity extends AppCompatActivity {
     //global variables
     BlogList blogList;
+    ViewSpecificBlogEntry specificBlogEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +191,16 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
         getSupportFragmentManager().executePendingTransactions();
+    }
+
+    protected void loadSpecificBlogEntry(long dbID){
+        specificBlogEntry = new ViewSpecificBlogEntry();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.mainLayout, specificBlogEntry, "mainLayout")
+                .addToBackStack(null)
+                .commit();
+        getSupportFragmentManager().executePendingTransactions();
+        specificBlogEntry.updateText(dbID);
     }
 
 }
