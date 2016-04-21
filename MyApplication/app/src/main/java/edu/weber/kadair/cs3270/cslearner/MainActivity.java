@@ -14,13 +14,16 @@ import android.view.MenuItem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collection;
 
 import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class MainActivity extends AppCompatActivity {
     //global variables
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         //Asynchronous method
         @Override
         protected String doInBackground(String... params){
+            /*
             Log.d("test", "doInBackground");
             try{
                 Log.d("test", "doInBackground");
@@ -128,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("test", "Failed to connect to the server");
             }
             Log.d("test", rawJson);
+            */
+            rawJson = DummyJson.dummyJson;
             return rawJson;
         }
 
@@ -164,7 +170,10 @@ public class MainActivity extends AppCompatActivity {
             Gson gson = gsonb.create();
             CSLearnerObjects.blogEntries[] blogs = null;
             try{
-                blogs = gson.fromJson(rawJson, CSLearnerObjects.blogEntries[].class);
+                blogs = DummyJson.dummyJsonArray();
+                //blogs = gson.fromJson(rawJson, CSLearnerObjects.blogEntries[].class);
+                //Type collectionType = new TypeToken<Collection<CSLearnerObjects.blogEntries>>(){}.getType();
+                //Collection<CSLearnerObjects.blogEntries> enums = gson.fromJson(rawJson, collectionType);
                 Log.d("test", "parsed Json");
             }catch(Exception e){
                 Log.d("test", e.getMessage());

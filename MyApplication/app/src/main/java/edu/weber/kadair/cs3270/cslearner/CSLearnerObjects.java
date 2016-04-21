@@ -7,11 +7,18 @@ public class CSLearnerObjects {
 
     //This object matches the dummy file
     //http://cslearner.com/blogEntries.json
-    protected class blogEntries{
+    protected static class blogEntries{
         protected int blogEntryID;
         protected String blogDate;
         protected String blogTitle;
         protected String blogText;
+
+        public blogEntries(int entryID, String date, String title, String text){
+            this.blogEntryID = entryID;
+            this.blogDate = date;
+            this.blogTitle = title;
+            this.blogText = text;
+        }
     }
 
     //THE OBJECTS BELOW MATCH THE *-*-*REAL*-*-* DATABASE BUT DON'T MATCH THE DUMMY FILE.
