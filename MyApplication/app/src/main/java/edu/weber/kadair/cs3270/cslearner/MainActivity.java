@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     );
                     Log.d("test", String.valueOf(rowID));
                 }
-                //TODO: reloadBlogList();
+                reloadBlogList();
             }catch(Exception e){
 
             }
@@ -182,4 +182,14 @@ public class MainActivity extends AppCompatActivity {
             return blogs;
         }
     }
+
+    private void reloadBlogList(){
+        blogList = new BlogList();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.mainLayout, blogList, "mainLayout")
+                .addToBackStack(null)
+                .commit();
+        getSupportFragmentManager().executePendingTransactions();
+    }
+
 }
